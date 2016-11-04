@@ -1,4 +1,6 @@
-package tests;
+
+// To run in IDE: uncomment line
+// package tests;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

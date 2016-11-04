@@ -1,4 +1,6 @@
-package tests;
+
+// Un-Comment package line to incorporate into IDE.
+// package tests;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

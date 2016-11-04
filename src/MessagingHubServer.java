@@ -1,4 +1,5 @@
-package src;
+// Un-comment package line to incorporate into IDE.
+// package src;
 
 // import util.properties packages
 import java.io.BufferedReader;

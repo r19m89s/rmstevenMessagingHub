@@ -1,4 +1,6 @@
-package tests;
+
+// Please un-comment this line only in the case that you are buidling using an IDE.
+// package tests;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
