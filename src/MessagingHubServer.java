@@ -29,7 +29,7 @@ public class MessagingHubServer {
 
         int curr_id;
         try {
-            // 1. creating a server socket - 1st parameter is port number and 2nd is the backlog
+            // 1. reating a server socket - 1st parameter is port number and 2nd is the backlog
             s = new ServerSocket(5000);
             echo("Server socket created.Waiting for connection...");
             while (true) {
@@ -134,12 +134,17 @@ public class MessagingHubServer {
                         String message = line_arr[0].replace("Send ", "");
                         String receiving = line_arr[1].replace(" and ", ",");
                         String[] receive_list = receiving.split(",");
-                        Iterator it = writers.entrySet().iterator();
+                        Iterator<HashMap.Entry<Integer, PrintWriter>> it = writers.entrySet().iterator();
+                        boolean writerFound = false;
                         while (it.hasNext()) {
                             Integer key = ((Integer) ((HashMap.Entry) it.next()).getKey());
                             if (Arrays.asList(receive_list).contains(key.toString())) {
                                 writers.get(key).println(message);
+                                writerFound = true;
                             }
+                        }
+                        if (!writerFound) {
+                            out_writer.println("Message sent to non-existent connections.");
                         }
                     } else {
                         out_stream.println("NOT RECOGNIZED COMMAND. PLEASE RETRY.");

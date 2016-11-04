@@ -55,16 +55,11 @@ public class RelayMessageTestNonExistentConnections {
             f_out.println("Send foobar to " + id_arr);
             System.out.println("Send foobar to " + id_arr);
 
-            // Second connection attempting to retrieve message
-            String s_message = s_in.readLine();
-            System.out.println("Second connection's message is: " + s_message);
-
-            // Third connection attempting to retrieve message
-            String t_message = t_in.readLine();
-            System.out.println("Third connection's ID is: " + t_message);
-
-            if (!s_message.equals("foobar") || !t_message.equals("foobar")) {
-                System.out.println("Second and Third Connections haven't received messages.");
+            message = f_in.readLine();
+            if (message.equals("Message sent to non-existent connections.")) {
+                f_out.println("TEST PASSED. Correct message has been sent to connection.");
+            } else {
+                f_out.println("TEST FAILED. False message has been sent to connection.");
             }
 
             // Exiting connections
